@@ -1,4 +1,4 @@
-# beta-jina-first
+# jina-clip-streamlit
 
 ### This app is a rough draft and is in progress. :)
 Jina app which allows you to search a collection of tattoo images by text. 
