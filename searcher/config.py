@@ -1,7 +1,7 @@
 # indexing data
-DOCARRAY_PULL_NAME = 'fashion-multimodal-all'
+# DOCARRAY_PULL_NAME = 'fashion-multimodal-all'
 DATA_DIR = "../data/images" # Where are the files?
-WORKSPACE_DIR = "../embeddings"
+# WORKSPACE_DIR = "../embeddings"
 MAX_DOCS = 100
 DEVICE = "cpu"
 

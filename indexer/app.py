@@ -228,18 +228,6 @@ flow_search_text = (
 )
 
 with flow_search_text:
-    resp = flow_search_text.post(
-            on="/search",
-            inputs=DocumentArray(
-                [
-                    Document(text='airplane'),
-                    Document(text='cards'),
-                ]
-            ),
-            on_done=plot_search_results, return_results=True
-    )
-    print(f'resp: {resp}')
-
     # BLOCK
     flow_search_text.block()
 
