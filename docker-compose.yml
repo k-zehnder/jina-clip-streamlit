@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  # frontend:
+  #   build: frontend
+  #   environment:
+  #     - SERVER=searcher
+  #     - DEBUG=False
+  #   ports:
+  #     - 8509:8509
+  #   depends_on:
+  #     - searcher
+  #   volumes:
+  #     - ./frontend:/workspace
+  #     - ./data:/data
+  #   restart: always
+
+  searcher:
+    build: searcher
+    environment:
+      - IN_DOCKER=True
+    ports:
+      - 12345:12345
+    volumes:
+      - ./embeddings:/embeddings
+      - ./data:/data
+    restart: always

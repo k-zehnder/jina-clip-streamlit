@@ -1,0 +1,6 @@
+jina
+torch
+transformers
+imutils
+opencv-python
+docarray
