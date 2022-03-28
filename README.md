@@ -8,5 +8,9 @@ Query text: Video games
 ![video_games_query](docs/usage/usage_video_games.jpg)
 
 ### Example 2
+Query text: skulls
+![skull_query](docs/usage/usage_skull.jpg)
+
+### Example 3
 Query text: Butterfly
 ![butterfly_query](docs/usage/usage_butterfly.jpg)
