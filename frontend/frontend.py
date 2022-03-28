@@ -40,7 +40,7 @@ if input_media == "text":
     text_search_button = st.button("Search")
     if text_search_button:
         c = get_client()
-        matches = search_by_text(c, 'video games')
+        matches = search_by_text(c, text_query)
         # print(matches)
 
 # elif input_media == "image":
@@ -54,6 +54,9 @@ if input_media == "text":
 #             server=server,
 #             port=port,
 #         )
+
+# NOTE:
+# streamlit run frontend/frontend.py
 
 if "matches" in locals():
     # print(matches.summary())
