@@ -8,11 +8,7 @@ from transformers import CLIPFeatureExtractor, CLIPModel, CLIPTokenizer
 from typing import Optional, Dict, List, Sequence
 from docarray import DocumentArray, Document
 from docarray.array.sqlite import SqliteConfig
-from helpers import get_embedded_da_from_img_files, plot_search_results, load_caltech
 
-
-IMAGES_PATH = "../data/images/*.jpg"
-# NOTE: need to have docker desktop running for this to work on macs
 
 class SimpleIndexer(Executor):
     def __init__(self, **kwargs):

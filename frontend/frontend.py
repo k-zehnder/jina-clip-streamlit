@@ -29,7 +29,7 @@ To speed up indexing, we indexed relatively low-resolution graphics. We're looki
 )
 
 st.sidebar.markdown(
-    "[Repo link](https://github.com/alexcg1/jina-multimodal-fashion-search)"
+    "[Repo link](https://github.com/k-zehnder/jina-clip-streamlit/blob/main/frontend/frontend.py)"
 )
 
 # Main area

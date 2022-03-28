@@ -11,8 +11,6 @@ from docarray.array.sqlite import SqliteConfig
 from helpers import get_embedded_da_from_img_files, plot_search_results, load_caltech
 
 
-IMAGES_PATH = "../data/images/*.jpg"
-# NOTE: need to have docker desktop running for this to work on macs
 
 class SimpleIndexer(Executor):
     def __init__(self, **kwargs):
@@ -139,9 +137,9 @@ class CLIPTextEncoder(Executor):
         return input_tokens
 
 # ------------ Driver
-images = get_embedded_da_from_img_files(IMAGES_PATH, num=150)
-# images = load_caltech("./data/caltech101", num=1500)
-# print(f"images: {images}")
+# NOTE: need to have docker desktop running for this to work on macs
+IMAGES_PATH = "../data/tattoo_images/*.jpg"
+images = get_embedded_da_from_img_files(IMAGES_PATH, num=1500)
 
 current_dir = pathlib.Path(__file__).parent.resolve()
 if os.path.exists(os.path.join(current_dir, "workspace")):
@@ -157,13 +155,24 @@ flow_index = (
 with flow_index:
     flow_index.post(on='/index', inputs=images, on_done=print, return_results=True)
 
+# 1. this just helps with debugging to show indexing has finished
 flow_search_text = (
     Flow(port=12345)
     .add(uses=CLIPTextEncoder, name='encoder', uses_with={'device': "cpu"})
     .add(uses=SimpleIndexer, name='indexer', workspace='workspace')
 )
-
+# 2. this just helps with debugging to show indexing has finished
 with flow_search_text:
-    # BLOCK
-    flow_search_text.block()
+    resp = flow_search_text.post(
+            on="/search",
+            inputs=DocumentArray(
+                [
+                    Document(text='airplane'),
+                    Document(text='cards'),
+                ]
+            ),
+            on_done=plot_search_results, return_results=True
+    )
+    print(f'resp: {resp}')
+
 
