@@ -5,3 +5,4 @@ imutils
 opencv-python
 docarray
 pillow
+streamlit
