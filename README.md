@@ -9,7 +9,7 @@ Query text: Video games
 
 ### Example 2
 Query text: skulls
-![skull_query](docs/usage/usage_skull.jpg)
+![skull_query](docs/usage/usage_skulls.jpg)
 
 ### Example 3
 Query text: Butterfly
