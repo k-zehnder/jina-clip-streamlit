@@ -18,7 +18,7 @@ st.sidebar.title("Options")
 
 input_media = st.sidebar.radio(label="Search with...", options=["text", "image"])
 
-#
+
 st.sidebar.title("About")
 
 st.sidebar.markdown(
