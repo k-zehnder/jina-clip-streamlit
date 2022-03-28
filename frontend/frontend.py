@@ -6,7 +6,7 @@ from config import (
 )
 from helpers import search_by_text, get_client, resize_image
 
-# NOTE: Must have indexed documents in "workspace" and also have beta-jina-first/searcher/app.py actively running in another tab for this file to work
+# NOTE: Must have indexed documents in "workspace" and also have jina-clip-streamlit/searcher/app.py actively running in another tab for this file to work
 
 
 title = "👕 Multimodal tattoo search with Jina"
@@ -27,7 +27,7 @@ st.sidebar.markdown(
 )
 
 st.sidebar.markdown(
-    "[Repo link](https://github.com/k-zehnder/jina-clip-streamlit/blob/main/frontend/frontend.py)"
+    "[Repo link](https://github.com/k-zehnder/jina-clip-streamlit)"
 )
 
 # Main area
@@ -71,7 +71,13 @@ if "matches" in locals():
         desc_cell.markdown(
             f"##### Score:\n{match.scores['cosine'].value}"
         )
+        data = match.uri
+        data = data.split("/")[-1]
+        desc_cell.markdown(
+            
+            f"*{data}*"
+        )
         # desc_cell.markdown(
         #     f"*{match.tags['masterCategory']}*, *{match.tags['subCategory']}*, *{match.tags['articleType']}*, *{match.tags['baseColour']}*, *{match.tags['season']}*, *{match.tags['usage']}*, *{match.tags['year']}*"
         # )
-        # price_cell.button(key=match.id, label=str(match.tags["price"]))
+        # price_cell.button(key=match.id, label=str(match.uri))
