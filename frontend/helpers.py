@@ -52,7 +52,8 @@ def get_client(port=12345, show_progress=True):
     c.show_progress = show_progress
     return c
 
-def search_by_text(client, query_text, verbose=False):
+def search_by_text(query_text, verbose=False):
+    client = get_client()
     q = create_query_da(query_text)
     results = client.post('/search', inputs=q, return_results=True)
     if verbose:

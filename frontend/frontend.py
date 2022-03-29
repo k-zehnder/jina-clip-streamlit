@@ -9,7 +9,7 @@ from helpers import search_by_text, get_client, resize_image
 # NOTE: Must have indexed documents in "workspace" and also have jina-clip-streamlit/searcher/app.py actively running in another tab for this file to work
 
 
-title = "👕 Multimodal tattoo search with Jina"
+title = "💉  Multimodal Tatoo Explorer with Jina"
 
 st.set_page_config(page_title=title, layout="wide")
 
@@ -18,8 +18,6 @@ st.sidebar.title("Options")
 
 input_media = st.sidebar.radio(label="Search with...", options=["text", "image"])
 
-
-st.sidebar.title("About")
 
 st.sidebar.markdown(
     """This example lets you use a *textual* description to search through *images* of tattoos using [Jina](https://github.com/jina-ai/jina/).
@@ -30,15 +28,15 @@ st.sidebar.markdown(
     "[Repo link](https://github.com/k-zehnder/jina-clip-streamlit)"
 )
 
+
 # Main area
 st.title(title)
 
 if input_media == "text":
-    text_query = st.text_input(label="Search term", placeholder="Blue dress")
+    text_query = st.text_input(label="Search term", placeholder="skulls")
     text_search_button = st.button("Search")
     if text_search_button:
-        c = get_client()
-        matches = search_by_text(c, text_query)
+        matches = search_by_text(text_query)
         # print(matches)
 
 # elif input_media == "image":
