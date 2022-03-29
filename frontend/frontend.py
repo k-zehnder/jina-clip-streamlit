@@ -9,7 +9,7 @@ from helpers import search_by_text, get_client, resize_image
 # NOTE: Must have indexed documents in "workspace" and also have jina-clip-streamlit/searcher/app.py actively running in another tab for this file to work
 
 
-title = "💉  Multimodal Tatoo Explorer with Jina"
+title = "💉  Jina Tattoo Explorer"
 
 st.set_page_config(page_title=title, layout="wide")
 
@@ -28,9 +28,55 @@ st.sidebar.markdown(
     "[Repo link](https://github.com/k-zehnder/jina-clip-streamlit)"
 )
 
+import base64
+def sidebar_bg(side_bg):
+
+   side_bg_ext = 'png'
+
+   st.markdown(
+      f"""
+      <style>
+      [data-testid="stSidebar"] > div:first-child {{
+          background: url(data:image/{side_bg_ext};base64,{base64.b64encode(open(side_bg, "rb").read()).decode()});
+      }}
+      </style>
+      """,
+      unsafe_allow_html=True,
+      )
+# side_bg = './docs/usage/python.png'
+# sidebar_bg(side_bg)
+
+
+def set_bg_hack_url():
+    '''
+    A function to unpack an image from url and set as bg.
+    Returns
+    -------
+    The background.
+    '''
+        
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background: url("https://i.pinimg.com/originals/3f/13/2e/3f132e57ddc000574d5bef0f39f124a5.gif");
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
+set_bg_hack_url()
+
+
+# """### gif from url"""
+# st.markdown("![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)")
+
 
 # Main area
 st.title(title)
+# st.markdown("![neon](https://i.pinimg.com/originals/3f/13/2e/3f132e57ddc000574d5bef0f39f124a5.gif)")
 
 if input_media == "text":
     text_query = st.text_input(label="Search term", placeholder="skulls")
@@ -54,6 +100,7 @@ if input_media == "text":
 # NOTE:
 # streamlit run frontend/frontend.py
 
+
 if "matches" in locals():
     # print(matches.summary())
     print(f'[INFO] printing match uris...')
@@ -61,21 +108,17 @@ if "matches" in locals():
 
     matches = [m for m in matches["@m"]]
     for match in matches:
-        pic_cell, desc_cell, price_cell = st.columns([3, 4, 1])
+        pic_cell, fname = st.columns([5, 3])
 
         image = resize_image(match.uri, resize_factor=3)
 
         pic_cell.image(image, use_column_width="auto")
-        desc_cell.markdown(
-            f"##### Score:\n{match.scores['cosine'].value}"
-        )
-        data = match.uri
-        data = data.split("/")[-1]
-        desc_cell.markdown(
-            
-            f"*{data}*"
-        )
-        # desc_cell.markdown(
-        #     f"*{match.tags['masterCategory']}*, *{match.tags['subCategory']}*, *{match.tags['articleType']}*, *{match.tags['baseColour']}*, *{match.tags['season']}*, *{match.tags['usage']}*, *{match.tags['year']}*"
-        # )
-        # price_cell.button(key=match.id, label=str(match.uri))
+        # data = match.uri.split("/")[-1]
+        # pic_cell.button(key=match.id, label=f"fname: {data}")
+
+        
+        score = match.scores["cosine"].value
+        fname.button(key=match.id, label=f"score: {score:.5f}")
+        # fname.button(key=match.id, label=f"fname: {data}")
+
+        fname.write(" ")
