@@ -11,9 +11,7 @@ import streamlit as st
 
 
 def sidebar_bg(side_bg):
-
    side_bg_ext = 'png'
-
    st.markdown(
       f"""
       <style>
