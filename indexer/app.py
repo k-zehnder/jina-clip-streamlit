@@ -138,8 +138,10 @@ class CLIPTextEncoder(Executor):
 
 # ------------ Driver
 # NOTE: need to have docker desktop running for this to work on macs
-IMAGES_PATH = "../data/tattoo_images/*.jpg"
+IMAGES_PATH = "./data/tattoo_images/*.jpg"
 images = get_embedded_da_from_img_files(IMAGES_PATH, num=1500)
+print(images.summary())
+
 
 current_dir = pathlib.Path(__file__).parent.resolve()
 if os.path.exists(os.path.join(current_dir, "workspace")):
