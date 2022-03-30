@@ -110,7 +110,9 @@ if "matches" in locals():
     for match in matches:
         pic_cell, fname = st.columns([5, 3])
 
-        image = resize_image(match.uri, resize_factor=3)
+        # image = resize_image(match.uri, resize_factor=3)
+        i = f"/Users/peppermint/Desktop/jina-clip-streamlit/data/tattoo_images/{match.uri}"
+        image = resize_image(i, resize_factor=3)
 
         pic_cell.image(image, use_column_width="auto")
         # data = match.uri.split("/")[-1]
