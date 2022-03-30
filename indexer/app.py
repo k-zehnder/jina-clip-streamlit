@@ -8,7 +8,7 @@ from transformers import CLIPFeatureExtractor, CLIPModel, CLIPTokenizer
 from typing import Optional, Dict, List, Sequence
 from docarray import DocumentArray, Document
 from docarray.array.sqlite import SqliteConfig
-from helpers import get_embedded_da_from_img_files, plot_search_results, load_caltech
+from helpers import get_embedded_da_from_img_files, plot_search_results
 
 
 
@@ -139,7 +139,7 @@ class CLIPTextEncoder(Executor):
 # ------------ Driver
 # NOTE: need to have docker desktop running for this to work on macs
 IMAGES_PATH = "./data/tattoo_images/*.jpg"
-images = get_embedded_da_from_img_files(IMAGES_PATH, num=1500)
+images = DocumentArray.from_files(IMAGES_PATH)
 print(images.summary())
 
 
@@ -154,6 +154,8 @@ flow_index = (
     .add(uses=SimpleIndexer, name='indexer', workspace='workspace')
 )
 
+flow_index.to_docker_compose_yaml('indexer-docker-compose.yml')
+
 with flow_index:
     flow_index.post(on='/index', inputs=images, on_done=print, return_results=True)
 
@@ -165,7 +167,7 @@ flow_search_text = (
     .add(uses=CLIPTextEncoder, name='encoder', uses_with={'device': "cpu"})
     .add(uses=SimpleIndexer, name='indexer', workspace='workspace')
 )
-
+flow_search_text.to_docker_compose_yaml('text-searcher-docker-compose.yml')
 with flow_search_text:
     resp = flow_search_text.post(
             on="/search",
