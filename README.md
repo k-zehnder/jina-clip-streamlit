@@ -1,10 +1,10 @@
 # jina-clip-streamlit
 
-### This app is a rough draft and is in progress. :)
-Jina app which allows you to search a collection of tattoo images by text. 
+Jina app which allows you to search a collection of tattoo images by text or image.
 
 ### Example 1
-![homepage](docs/usage/usage_home.jpg)
+Wait forrrr ittt....
+![homepage](docs/usage/trimmed_sped_up.jpg)
 
 ### Example 2
 ![homepage2](docs/usage/usage_home2.jpg)
