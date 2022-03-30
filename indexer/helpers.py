@@ -6,22 +6,12 @@ from docarray import DocumentArray, Document
 from docarray.array.sqlite import SqliteConfig
 from jina import DocumentArray, Document
 from jina.clients import Client
-from jina import Executor, Flow, requests
 from jina.types.request import Request
 from docarray import DocumentArray, Document
 from docarray.array.sqlite import SqliteConfig
+from PIL import Image
 
-# from resultsmontage import ResultsMontage
 
-
-def resize_image(filename, resize_factor=2):
-    from PIL import Image
-
-    image = Image.open(filename)
-    w, h = image.size
-    image = image.resize((w * resize_factor, h * resize_factor), Image.ANTIALIAS)
-
-    return image
 
 def get_docs_from_sqlite(connection, table):
     cfg = SqliteConfig(connection, table)
@@ -66,37 +56,10 @@ def show_results(query, results):
             print(d.uri, m.uri, m.scores['cosine'].value)
     return results
 
-def load_caltech(path, num):
-    da = DocumentArray()
-    imagePaths = paths.list_images(path)
-    for imagePath in imagePaths[:num]:
-        da.append(Document(uri=imagePath))
-    da.apply(
-            lambda d: d.load_uri_to_image_tensor()
-            .load_uri_to_image_tensor(200, 200)  # load
-            .set_image_tensor_normalization()  # normalize color
-            .set_image_tensor_channel_axis(-1, 0)  # switch color axis for the PyTorch model later
-        )    
-    return da
+def resize_image(filename, resize_factor=2):
+    image = Image.open(filename)
+    w, h = image.size
+    image = image.resize((w * resize_factor, h * resize_factor), Image.ANTIALIAS)
 
-# def show_montage(query, res):
-    # print(f'query_text: {query}')
+    return image
 
-    # montage = ResultsMontage((600, 800), 3, 12)
-    # for (i, match) in enumerate(res.to_dict()[0]["matches"]):
-    #     result = cv2.imread(match["uri"]) 
-    #     score = match['scores']['cosine']['value']
-        
-    #     montage.addResult(result, text=f"#{i+1} > {score:.2f}")
-
-    #     cv2.imshow(f"Query Text: {query}", imutils.resize(montage.montage, height=800))
-    #     cv2.waitKey(0)
-    
-    # cv2.destroyAllWindows()
-
-if __name__ == "__main__":
-    conn = "./workspace/SimpleIndexer/0/index.db"
-    table = "clip"
-    
-    data = get_embedded_da_from_img_files(conn, table)
-    print(data)

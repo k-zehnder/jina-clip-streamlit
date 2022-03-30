@@ -1,8 +1,5 @@
 import os
 
-# data directory
-DATA_DIR = "../data/tattoo_images"
-
 # client
 TOP_K = 10
 IMAGE_RESIZE_FACTOR = 3

@@ -1,12 +1,10 @@
-# indexing data
-# DOCARRAY_PULL_NAME = 'fashion-multimodal-all'
-DATA_DIR = "../data/images" # Where are the files?
-# WORKSPACE_DIR = "../embeddings"
-MAX_DOCS = 100
-DEVICE = "cpu"
+import os
+
+# client
+TOP_K = 10
+IMAGE_RESIZE_FACTOR = 3
+DEBUG = True
 
 # serving via REST
+SERVER = os.getenv("SERVER", "0.0.0.0")
 PORT = 12345
-
-# metas for executors
-TIMEOUT_READY = -1 # Wait forever for executor to be ready. Good for slow connections
