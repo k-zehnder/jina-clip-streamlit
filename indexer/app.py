@@ -157,13 +157,15 @@ flow_index = (
 with flow_index:
     flow_index.post(on='/index', inputs=images, on_done=print, return_results=True)
 
-# 1. this just helps with debugging to show indexing has finished
+
+# --------- Anything below this line is not needed. 
+# This just helps with debugging after indexing has finished by performing a sample query to see that its working and will return results.
 flow_search_text = (
     Flow(port=12345)
     .add(uses=CLIPTextEncoder, name='encoder', uses_with={'device': "cpu"})
     .add(uses=SimpleIndexer, name='indexer', workspace='workspace')
 )
-# 2. this just helps with debugging to show indexing has finished by making a sample query
+
 with flow_search_text:
     resp = flow_search_text.post(
             on="/search",

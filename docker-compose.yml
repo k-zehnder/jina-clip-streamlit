@@ -15,13 +15,13 @@ services:
   #     - ./data:/data
   #   restart: always
 
-  searcher:
-    build: searcher
-    environment:
-      - IN_DOCKER=True
-    ports:
-      - 12345:12345
-    volumes:
-      - ./embeddings:/embeddings
-      - ./data:/data
-    restart: always
+  # searcher:
+  #   build: searcher
+  #   environment:
+  #     - IN_DOCKER=True
+  #   ports:
+  #     - 12345:12345
+  #   volumes:
+  #     # - ./workspace:/workspace
+  #     - ./data:/data
+  #   restart: always
