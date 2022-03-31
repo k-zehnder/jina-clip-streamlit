@@ -10,7 +10,6 @@ from docarray import DocumentArray, Document
 class SimpleIndexer(Executor):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        # print(os.path.join(self.workspace, 'index.db'))
         self._index = DocumentArray(
             storage='sqlite',
             config={

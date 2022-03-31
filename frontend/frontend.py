@@ -32,7 +32,6 @@ elif input_media == "image":
         matches = search_by_image(input=image_query)
         st.success("success") # TODO: show time taken also here
 
-
 if "matches" in locals():
     matches = [m for m in matches["@m"]]
     for match in matches:

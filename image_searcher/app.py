@@ -11,18 +11,7 @@ from docarray.array.sqlite import SqliteConfig
 class SimpleIndexer(Executor):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        # print(os.path.join(self.workspace, 'index.db'))
-        self._index = DocumentArray(
-            storage='sqlite',
-            config={
-                'connection': os.path.join(self.workspace, 'index.db'),
-                'table_name': 'clip',
-            },
-        )
-
-    @requests(on='/index')
-    def index(self, docs: DocumentArray, **kwargs):
-        self._index.extend(docs)
+        self._index = DocumentArray.load("indexed_da.bin")
         
     @requests(on='/search')
     def search(self, docs: DocumentArray, **kwargs):
