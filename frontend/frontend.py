@@ -3,7 +3,6 @@ from config import SERVER, PORT, DEBUG
 from helpers import search_by_text, resize_image, set_bg_hack_url
 
 
-
 # NOTE: Must have indexed documents in "workspace" and also have jina-clip-streamlit/searcher/app.py actively running in another tab for this file to work
 
 

@@ -14,7 +14,6 @@ from transformers import CLIPFeatureExtractor, CLIPModel, CLIPTokenizer
 from typing import Optional, Dict, List, Sequence
 from docarray import DocumentArray, Document
 from docarray.array.sqlite import SqliteConfig
-from helpers import get_embedded_da_from_img_files
 
 
 class SimpleIndexer(Executor):
@@ -130,7 +129,6 @@ class CLIPTextEncoder(Executor):
             )  # we compute the embeddings and store it directly in the DocumentArray
 
     def _generate_input_tokens(self, texts: Sequence[str]):
-
         input_tokens = self.tokenizer(
             texts,
             max_length=77,
@@ -145,8 +143,7 @@ class CLIPTextEncoder(Executor):
 # ------------ Driver
 # NOTE: need to have docker desktop running for this to work on macs
 IMAGES_PATH = "./data/tattoo_images/*.jpg"
-# images = DocumentArray.from_files(IMAGES_PATH)
-images = get_embedded_da_from_img_files(IMAGES_PATH, num=1500) 
+images = DocumentArray.from_files(IMAGES_PATH)
 print(images.summary())
 
 current_dir = pathlib.Path(__file__).parent.resolve()
@@ -162,6 +159,6 @@ flow_index = (
 )
 
 with flow_index:
-    flow_index.post(on='/index', inputs=images, on_done=print, return_results=True)
+    flow_index.post(on='/index', inputs=images, on_done=print, show_progressbar=True)
     print('\n\n[INFO] Finished indexing.')
 
