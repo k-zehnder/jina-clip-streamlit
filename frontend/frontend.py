@@ -1,18 +1,19 @@
 import streamlit as st
 from config import SERVER, PORT, DEBUG
-from helpers import search_by_text, resize_image, set_bg_hack_url#, title_widget, sidebar_widget
+from helpers import search_by_text, resize_image, set_bg_hack_url
 from widgets import title_widget, sidebar_widget
 
+
 # NOTE: Must have indexed documents in "workspace" and also have jina-clip-streamlit/searcher/app.py actively running in another tab for this file to work
-    
 
-# Main area
-title_widget(title="💉  Jina Tattoo Explorer", background_url="https://i.pinimg.com/originals/3f/13/2e/3f132e57ddc000574d5bef0f39f124a5.gif")
+# ---------- Main area
+title_widget(
+    title="💉  Jina Tattoo Explorer", 
+    background_url="https://i.pinimg.com/originals/3f/13/2e/3f132e57ddc000574d5bef0f39f124a5.gif"
+)
 
-# Sidebar
+# ---------- Sidebar
 input_media = sidebar_widget()
-
-
 
 # ---------- Wait for user inputs
 if input_media == "text":
