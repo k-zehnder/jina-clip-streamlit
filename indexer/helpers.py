@@ -30,3 +30,10 @@ def resize_image(filename, resize_factor=2):
     w, h = image.size
     return image.resize((w * resize_factor, h * resize_factor), Image.ANTIALIAS)
 
+def get_embedded_da_from_img_files(images_path, num):
+    return DocumentArray.from_files(images_path, num).apply(
+        lambda d: d.load_uri_to_image_tensor()
+        .load_uri_to_image_tensor(200, 200)  # load
+        .set_image_tensor_normalization()  # normalize color
+        .set_image_tensor_channel_axis(-1, 0)  # switch color axis for the PyTorch model later
+    )    
