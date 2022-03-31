@@ -1,5 +1,4 @@
 import streamlit as st
-from config import SERVER, PORT, DEBUG
 from helpers import search_by_text, resize_image, search_by_image
 from widgets import sidebar_widget, set_background_widget
 
@@ -10,7 +9,7 @@ from widgets import sidebar_widget, set_background_widget
 set_background_widget(
     background_url="https://i.pinimg.com/originals/3f/13/2e/3f132e57ddc000574d5bef0f39f124a5.gif"
 )
-st.title(title="💉  Jina Tattoo Explorer")
+st.title("💉  Jina Tattoo Explorer")
 
 # ---------- Sidebar
 input_media = sidebar_widget()

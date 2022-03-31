@@ -1,4 +1,4 @@
-from typing import Optional, Dict, List, Sequence
+from typing import Optional, Dict, List, Sequence, Any
 from copy import deepcopy
 
 from jina import Flow, Document, DocumentArray, Executor, Flow, requests
