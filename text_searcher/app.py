@@ -209,10 +209,9 @@ flow_search_text = (
     Flow(
         port=12345
     ).add(
-        uses=f"jinahub://CLIPEncoder/latest",
+        uses=CLIPEncoder,
         name="encoder",
         uses_with={"device": "cpu"},
-        install_requirements=True,
         workspace=WORKSPACE_DIR
     ).add(
         uses="jinahub://PQLiteIndexer/latest",
