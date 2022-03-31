@@ -12,7 +12,9 @@ title_widget(title="💉  Jina Tattoo Explorer", background_url="https://i.pinim
 # Sidebar
 input_media = sidebar_widget()
 
-# Wait for user inputs
+
+
+# ---------- Wait for user inputs
 if input_media == "text":
     text_query = st.text_input(label="Search term", placeholder="skulls")
     text_search_button = st.button("Search")
