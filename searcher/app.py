@@ -1,13 +1,10 @@
 import os
-import pathlib
-import shutil
 from jina import Flow, Document, DocumentArray
 from jina import Executor, Flow, requests
 import torch
 from transformers import CLIPFeatureExtractor, CLIPModel, CLIPTokenizer
 from typing import Optional, Dict, List, Sequence
 from docarray import DocumentArray, Document
-from docarray.array.sqlite import SqliteConfig
 
 
 class SimpleIndexer(Executor):

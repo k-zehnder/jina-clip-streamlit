@@ -10,8 +10,6 @@ from PIL import Image
 import streamlit as st
 
 
-
-
 def get_docs_from_sqlite(connection, table):
     cfg = SqliteConfig(connection, table)
     return DocumentArray(storage='sqlite', config=cfg)
