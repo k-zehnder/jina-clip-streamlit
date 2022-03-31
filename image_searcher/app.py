@@ -201,9 +201,15 @@ class CLIPEncoder(Executor):
 # ------------ Driver
 WORKSPACE_DIR = "./workspace"
 flow_search_image = (
-    Flow(port=12345)
-    .add(uses=CLIPEncoder, name='encoder', uses_with={'device': "cpu"})
-    .add(
+    Flow(
+        port=12345
+    ).add(
+        uses=f"jinahub://CLIPEncoder/latest",
+        name="encoder",
+        uses_with={"device": "cpu"},
+        install_requirements=True,
+        workspace=WORKSPACE_DIR
+    ).add(
         uses="jinahub://PQLiteIndexer/latest",
         name="indexer",
         uses_with={
@@ -211,11 +217,11 @@ flow_search_image = (
             "metric": "cosine",
             "include_metadata": True,
         },
-        uses_metas={"workspace": WORKSPACE_DIR},
-        volumes=f"./{WORKSPACE_DIR}:/workspace/workspace",
+        workspace=WORKSPACE_DIR,
         install_requirements=True,
     )
 )
+
 with flow_search_image:
     # BLOCK
     flow_search_image.block()

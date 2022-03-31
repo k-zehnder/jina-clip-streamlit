@@ -214,8 +214,6 @@ class CLIPEncoder(Executor):
 # NOTE: need to have docker desktop running for this to work on older macs
 IMAGES_PATH = "./data/tattoo_images/*.jpg"
 images = DocumentArray.from_files(IMAGES_PATH)
-# images = get_embedded_da_from_img_files(IMAGES_PATH, num=1500)
-print(images.summary())
 
 current_dir = pathlib.Path(__file__).parent.resolve()
 if os.path.exists(os.path.join(current_dir, "workspace")):
@@ -224,9 +222,15 @@ if os.path.exists(os.path.join(current_dir, "workspace")):
 
 WORKSPACE_DIR = "./workspace"
 flow_index = (
-    Flow(port=12345)
-    .add(uses=CLIPEncoder, name='encoder', uses_with={'device': "cpu"})
-    .add(
+    Flow(
+        port=12345
+    ).add(
+        uses=f"jinahub://CLIPEncoder/latest",
+        name="encoder",
+        uses_with={"device": "cpu"},
+        install_requirements=True,
+        workspace=WORKSPACE_DIR
+    ).add(
         uses="jinahub://PQLiteIndexer/latest",
         name="indexer",
         uses_with={
@@ -234,11 +238,11 @@ flow_index = (
             "metric": "cosine",
             "include_metadata": True,
         },
-        uses_metas={"workspace": WORKSPACE_DIR},
-        volumes=f"./{WORKSPACE_DIR}:/workspace/workspace",
+        workspace=WORKSPACE_DIR,
         install_requirements=True,
     )
 )
+
 
 with flow_index:
     flow_index.post(on='/index', inputs=images, on_done=print, show_progressbar=True)
