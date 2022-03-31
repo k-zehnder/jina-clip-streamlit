@@ -4,7 +4,7 @@ Jina app which allows you to search a collection of tattoo images by text or ima
 
 ### Example 1
 Wait forrrr ittt....
-![homepage](docs/usage/trimmed_sped_up.jpg)
+![homepage](docs/usage/workstitle.jpg)
 
 ### Example 2
 Searching by image

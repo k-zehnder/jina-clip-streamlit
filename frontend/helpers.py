@@ -9,7 +9,7 @@ from docarray import DocumentArray, Document
 from docarray.array.sqlite import SqliteConfig
 from PIL import Image
 import streamlit as st
-
+from config import IMAGE_RESIZE_FACTOR
 
 
 def get_docs_from_sqlite(connection: str, table: str) -> DocumentArray:
@@ -24,7 +24,7 @@ def get_client(port: int = 12345, show_progress: bool = True) -> Client:
     c.show_progress = show_progress
     return c
 
-def resize_image(filename: str, resize_factor: str=2) -> Image:
+def resize_image(filename: str, resize_factor: str=IMAGE_RESIZE_FACTOR) -> Image:
     image = Image.open(filename)
     w, h = image.size
     return image.resize((w * resize_factor, h * resize_factor), Image.ANTIALIAS)

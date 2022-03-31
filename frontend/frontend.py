@@ -4,7 +4,7 @@ from helpers import search_by_text, resize_image, search_by_image
 from widgets import sidebar_widget, set_background_widget
 
 
-# NOTE: Must have indexed documents in "workspace" and also have jina-clip-streamlit/text_searcher/app.py AND jina-clip-streamlit/image_searcher/app.py actively running in two other tabs for this file to work
+# NOTE: Must have indexed documents in "workspace" AND also have jina-clip-streamlit/text_searcher/app.py AND jina-clip-streamlit/image_searcher/app.py actively running in two other tabs for this file to work
 
 # ---------- Main area
 set_background_widget(
