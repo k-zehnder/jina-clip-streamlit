@@ -1,12 +1,8 @@
 import base64
-from typing import List, Optional, Any
 from docarray import DocumentArray, Document
 from docarray.array.sqlite import SqliteConfig
 from jina import DocumentArray, Document
 from jina.clients import Client
-from jina.types.request import Request
-from docarray import DocumentArray, Document
-from docarray.array.sqlite import SqliteConfig
 from PIL import Image
 import streamlit as st
 from config import IMAGE_RESIZE_FACTOR
