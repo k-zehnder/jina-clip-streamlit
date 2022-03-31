@@ -7,8 +7,12 @@ Wait forrrr ittt....
 ![homepage](docs/usage/trimmed_sped_up.jpg)
 
 ### Example 2
-![homepage2](docs/usage/usage_home2.jpg)
+Searching by image
+![mario](docs/usage/usage_image_mario.jpg)
 
 ### Example 3
+![homepage2](docs/usage/usage_home2.jpg)
+
+### Example 4
 Query text: skulls
 ![video_games_query](docs/usage/usage_skulls.jpg)
