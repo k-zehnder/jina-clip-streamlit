@@ -6,16 +6,12 @@ import torch
 from jina import Flow, Document, DocumentArray
 from jina import Executor, Flow, requests
 
-from transformers import CLIPFeatureExtractor, CLIPModel, CLIPTokenizer
-
 from copy import deepcopy
 from typing import Any, Dict, Optional, Sequence
 
-import torch
-from docarray import DocumentArray
-from jina import Executor, requests
 from transformers import CLIPFeatureExtractor, CLIPModel, CLIPTokenizer
 
+from helpers import finished
 
 class CLIPEncoder(Executor):
     def __init__(
@@ -240,8 +236,11 @@ flow_index = (
     )
 )
 
-
 with flow_index:
-    flow_index.post(on='/index', inputs=images, on_done=print, show_progressbar=True)
-    print('\n\n[INFO] Finished indexing.')
+    flow_index.post(
+        on='/index', 
+        inputs=images,
+        show_progressbar=True
+    )
+    print("[INFO] indexing complete.")
 

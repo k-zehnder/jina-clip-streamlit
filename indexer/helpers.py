@@ -1,6 +1,3 @@
-import os
-import cv2
-import imutils
 from imutils import paths
 from docarray import DocumentArray, Document
 from docarray.array.sqlite import SqliteConfig
