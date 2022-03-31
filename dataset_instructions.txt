@@ -1,0 +1,3 @@
+Link to images. In future will make utility function to make this load automatically or push/pull from jina hub
+
+https://www.fer.unizg.hr/demsi/databases_and_code/tattoo_dataset
