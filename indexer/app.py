@@ -8,9 +8,6 @@ from jina import Executor, Flow, requests
 
 from transformers import CLIPFeatureExtractor, CLIPModel, CLIPTokenizer
 
-from helpers import get_embedded_da_from_img_files
-
-
 from copy import deepcopy
 from typing import Any, Dict, Optional, Sequence
 
