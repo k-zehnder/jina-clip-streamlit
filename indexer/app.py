@@ -1,17 +1,15 @@
-from typing import Optional, Dict, Sequence
+from typing import Any, Dict, Optional, Sequence
 import os
+from copy import deepcopy
 import pathlib
 import shutil
-import torch
-from jina import Flow, Document, DocumentArray
-from jina import Executor, Flow, requests
 
-from copy import deepcopy
-from typing import Any, Dict, Optional, Sequence
+import torch
+
+from jina import Flow, Document, DocumentArray, Executor, requests
 
 from transformers import CLIPFeatureExtractor, CLIPModel, CLIPTokenizer
 
-from helpers import finished
 
 class CLIPEncoder(Executor):
     def __init__(
@@ -240,7 +238,8 @@ with flow_index:
     flow_index.post(
         on='/index', 
         inputs=images,
-        show_progressbar=True
+        show_progressbar=True,
+        on_done=print
     )
     print("[INFO] indexing complete.")
 
