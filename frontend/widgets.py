@@ -2,8 +2,7 @@ import streamlit as st
 from helpers import set_bg_hack_url
 
 
-def title_widget(title, background_url):
-    st.set_page_config(page_title=title, layout="wide")
+def set_background_widget(background_url):
     set_bg_hack_url(background_url)
 
 def sidebar_widget():
