@@ -11,6 +11,7 @@ from PIL import Image
 import streamlit as st
 
 
+
 def get_docs_from_sqlite(connection: str, table: str) -> DocumentArray:
     cfg = SqliteConfig(connection, table)
     return DocumentArray(storage='sqlite', config=cfg)
@@ -30,10 +31,24 @@ def resize_image(filename: str, resize_factor: str=2) -> Image:
 
 def search_by_text(query_text, verbose=False):
     client = get_client()
-    q = create_query_da(query_text)
-    results = client.post('/search', inputs=q, return_results=True)
+    input_docarray = create_query_da(query_text)
+    results = client.post('/search', inputs=input_docarray, return_results=True, show_progress=True)
     if verbose:
-        show_results(q, results)
+        show_results(input_docarray, results)
+    return results
+
+def search_by_image(input):
+    data = input.read()
+    query_doc = Document(blob=data)
+    query_doc.convert_blob_to_image_tensor()
+    query_doc.set_image_tensor_shape((80, 60))
+
+    client = get_client()
+    results = client.post('/search',
+        query_doc,
+        return_results=True,
+        show_progress=True
+    )
     return results
 
 def show_results(query, results):
