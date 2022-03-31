@@ -141,7 +141,7 @@ class CLIPTextEncoder(Executor):
 
 
 # ------------ Driver
-# NOTE: need to have docker desktop running for this to work on macs
+# NOTE: need to have docker desktop running for this to work on older macs
 IMAGES_PATH = "./data/tattoo_images/*.jpg"
 images = DocumentArray.from_files(IMAGES_PATH)
 print(images.summary())
