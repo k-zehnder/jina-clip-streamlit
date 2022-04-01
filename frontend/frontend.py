@@ -26,7 +26,7 @@ elif input_media == "image":
     image_query = st.file_uploader(label="Image file")
     image_search_button = st.button("Search")
     if image_search_button:
-        matches = search_by_image(input=image_query)
+        matches = search_by_image(image_query)
         st.success("success") # TODO: show time taken also here
 
 if "matches" in locals():
