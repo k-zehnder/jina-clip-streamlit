@@ -19,11 +19,9 @@ Wait forrrr ittt....
   </a>
 </p>
 
-### Example
 Searching by image
 ![mario](docs/usage/usage_image_mario.jpg)
 
-### Example
 Query text: skulls
 ![video_games_query](docs/usage/usage_skulls.jpg)
 
