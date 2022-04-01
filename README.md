@@ -6,7 +6,7 @@
     </p>
     <br>
     <p align="center">
-        This project was inspired by [this project](https://github.com/jina-ai/example-multimodal-fashion-search)
+        This project was inspired by [(https://github.com/jina-ai/example-multimodal-fashion-search)].
     </p>
 </div>
 
