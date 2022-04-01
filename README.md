@@ -20,12 +20,12 @@ Wait forrrr ittt....
   </a>
 </p>
 
-Searching by image.
-![mario](docs/usage/usage_image_mario.jpg)
-
 Searching by text.
 Query text: skulls
 ![video_games_query](docs/usage/usage_skulls.jpg)
+
+Searching by image.
+![mario](docs/usage/usage_image_mario.jpg)
 
 ## Instructions
 #wip
