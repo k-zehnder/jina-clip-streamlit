@@ -30,8 +30,7 @@ elif input_media == "image":
         st.success("success")
 
 if "matches" in locals():
-    matches = list(matches["@m"])
-    for match in matches:
+    for match in list(matches["@m"]):
         print(match.uri)
         pic_cell, fname = st.columns([5, 3])
         image = resize_image(match.uri, resize_factor=3)
