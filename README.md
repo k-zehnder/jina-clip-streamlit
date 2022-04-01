@@ -10,6 +10,8 @@
     </p>
 </div>
 
+----
+
 ### Example 1
 Wait forrrr ittt....
 <p align="center">
