@@ -35,7 +35,9 @@ if "matches" in locals():
         print(match.uri)
         pic_cell, fname = st.columns([5, 3])
         image = resize_image(match.uri, resize_factor=3)
+        
         pic_cell.image(image, use_column_width="auto")
         score = match.scores["cosine"].value
+        
         fname.button(key=match.id, label=f"score: {score:.5f}")
         fname.write(" ")
