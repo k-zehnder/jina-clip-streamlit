@@ -1,5 +1,12 @@
 # jina-clip-streamlit
 
+Wait forrrr ittt....
+<p align="center">
+  <a href=docs/usage/workstitle.jpg>
+    <img src="docs/usage/workstitle.jpg" width="500">
+  </a>
+</p>
+
 <div>
     <p align="center">
         Jina app which allows you to search a collection of tattoo images by text or image.
@@ -13,13 +20,6 @@
 
 ----
 ## Examples
-Wait forrrr ittt....
-<p align="center">
-  <a href=docs/usage/workstitle.jpg>
-    <img src="docs/usage/workstitle.jpg" width="500">
-  </a>
-</p>
-
 Searching by text.
 Query text: skulls
 ![video_games_query](docs/usage/usage_skulls.jpg)
