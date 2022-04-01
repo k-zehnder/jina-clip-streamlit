@@ -18,6 +18,7 @@ def sidebar_widget():
     st.sidebar.markdown(
         "[Repo link](https://github.com/k-zehnder/jina-clip-streamlit)"
     )
+    
     st.sidebar.markdown(
         "[Credits](https://github.com/jina-ai/example-multimodal-fashion-search)"
     )
