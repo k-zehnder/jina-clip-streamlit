@@ -2,6 +2,8 @@
 
 Jina app which allows you to search a collection of tattoo images by text or image.
 
+This project was inspired by [this project](https://github.com/jina-ai/example-multimodal-fashion-search)
+
 ### Example 1
 Wait forrrr ittt....
 ![homepage](docs/usage/workstitle.jpg)
