@@ -7,7 +7,7 @@
     <br>
     <p align="center">
         This project was inspired by: 
-        https://github.com/jina-ai/example-multimodal-fashion-search. So thanks Alex :)
+        https://github.com/jina-ai/example-multimodal-fashion-search
     </p>
 </div>
 
