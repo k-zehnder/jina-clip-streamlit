@@ -11,8 +11,7 @@
 </div>
 
 ----
-
-### Example 1
+## Examples
 Wait forrrr ittt....
 <p align="center">
   <a href=docs/usage/workstitle.jpg>
@@ -20,11 +19,11 @@ Wait forrrr ittt....
   </a>
 </p>
 
-### Example 2
+### Example
 Searching by image
 ![mario](docs/usage/usage_image_mario.jpg)
 
-### Example 3
+### Example
 Query text: skulls
 ![video_games_query](docs/usage/usage_skulls.jpg)
 
