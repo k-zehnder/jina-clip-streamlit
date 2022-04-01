@@ -20,17 +20,17 @@ if input_media == "text":
     text_search_button = st.button("Search")
     if text_search_button:
         matches = search_by_text(text_query)
-        st.success("success") # TODO: show time taken also here
+        st.success("success")
 
 elif input_media == "image":
     image_query = st.file_uploader(label="Image file")
     image_search_button = st.button("Search")
     if image_search_button:
         matches = search_by_image(image_query)
-        st.success("success") # TODO: show time taken also here
+        st.success("success")
 
 if "matches" in locals():
-    matches = [m for m in matches["@m"]]
+    matches = list(matches["@m"])
     for match in matches:
         print(match.uri)
         pic_cell, fname = st.columns([5, 3])
