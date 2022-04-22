@@ -80,14 +80,19 @@ This will create embeddings for all images using CLIPImageEncoder, and then stor
 Open a new terminal window/tab, and run from same root directory.
 1. `python indexer/app.py to index data` 
 
-### 4. Run search backend
+### 4. Run text search backend
 
 Open a new terminal window/tab, run from same root directory.
-1. `python indexer/app.py` to start the search server(s)
+1. `python text_searcher/app.py` to start the text search server
 
-### 5. Run frontend
+### 5. Run image search backend
+
+Open a new terminal window/tab, run from same root directory.
+1. `python image_searcher/app.py` to start the image search server
+
+### 6. Run frontend
 
 Open a new terminal window/tab, return to same directory
 1. `streamlit run frontend/frontend.py`
 
-## 6. Yahtzee! Jina FTW
+## 7. Yahtzee! Jina FTW
