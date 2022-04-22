@@ -28,4 +28,69 @@ Searching by image.
 ![mario](docs/usage/usage_image_mario.jpg)
 
 ## Instructions
-#wip
+## Here is how you run this:
+
+How to run yourself.
+
+### Setup
+
+```git clone https://github.com/k-zehnder/jina-clip-streamlit```
+
+```cd jina-clip-streamlit```
+
+```pip install -r requirements.txt```
+
+### Download data
+```https://www.fer.unizg.hr/demsi/databases_and_code/tattoo_dataset```
+
+You will need to go to the site above and download the tattoo images. Its about 1500 images. Create a folder in the root directory called "data", and then inside the data folder make another folder called "tattoo_images". Dump the images you downloaded into the "tattoo_images" folder that you made inside the "data" folder. Use the directory structure below to help keep you oriented.
+
+```
+.
+├── data
+│   └── tattoo_images
+├── docs
+│   └── usage
+├── frontend
+│   ├── __pycache__
+│   ├── config.py
+│   ├── frontend.py
+│   ├── helpers.py
+│   └── widgets.py
+├── image_searcher
+│   ├── app.py
+│   └── config.py
+├── indexer
+│   ├── __pycache__
+│   ├── app.py
+│   └── helpers.py
+├── text_searcher
+│   ├── app.py
+│   └── config.py
+├── workspace
+│   └── PQLiteIndexer
+├── README.md
+├── dataset_instructions.txt
+├── post.txt
+├── requirements.txt
+└── website.txt
+```
+
+### Create embeddings and index your data
+
+This will create embeddings for all images using CLIPImageEncoder, and then store them on disk (with metadata) with PQLiteIndexer.
+
+Open a new terminal window/tab, and run from same root directory.
+1. `python indexer/app.py to index data` 
+
+### Run search backend
+
+Open a new terminal window/tab, run from same root directory.
+1. `python indexer/app.py` to start the search server(s)
+
+### Run frontend
+
+Open a new terminal window/tab, return to same directory
+1. `streamlit run frontend/frontend.py`
+
+## Yahtzee! Jina FTW
