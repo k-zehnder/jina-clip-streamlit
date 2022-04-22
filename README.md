@@ -67,7 +67,7 @@ You will need to go to the site above and download the tattoo images. Its about 
 ├── text_searcher
 │   ├── app.py
 │   └── config.py
-├── workspace
+├── workspace # 'workspace' directory will be created automatically when you index so don't worry about this to start. It will be created when you index.
 │   └── PQLiteIndexer
 ├── README.md
 ├── dataset_instructions.txt
