@@ -29,7 +29,7 @@ Searching by image.
 
 ## How to run:
 
-### Setup
+### 1. Setup
 
 ```git clone https://github.com/k-zehnder/jina-clip-streamlit```
 
@@ -37,7 +37,7 @@ Searching by image.
 
 ```pip install -r requirements.txt```
 
-### Download data
+### 2. Download data
 ```https://www.fer.unizg.hr/_download/repository/tattoo_images.zip```
 
 When you go to the link above it should begin downloading the tattoo image dataset. Its about 1500 images. Create a folder in the root directory called "data", and then inside the data folder make another folder called "tattoo_images". Dump the images you downloaded into the "tattoo_images" folder that you made inside the "data" folder. Use the directory structure below to help keep you oriented.
@@ -73,21 +73,21 @@ When you go to the link above it should begin downloading the tattoo image datas
 └── website.txt
 ```
 
-### Create embeddings and index your data
+### 3. Create embeddings and index your data
 
 This will create embeddings for all images using CLIPImageEncoder, and then store them on disk (with metadata) with PQLiteIndexer.
 
 Open a new terminal window/tab, and run from same root directory.
 1. `python indexer/app.py to index data` 
 
-### Run search backend
+### 4. Run search backend
 
 Open a new terminal window/tab, run from same root directory.
 1. `python indexer/app.py` to start the search server(s)
 
-### Run frontend
+### 5. Run frontend
 
 Open a new terminal window/tab, return to same directory
 1. `streamlit run frontend/frontend.py`
 
-## Yahtzee! Jina FTW
+## 6. Yahtzee! Jina FTW
