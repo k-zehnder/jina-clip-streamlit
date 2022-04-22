@@ -41,9 +41,9 @@ How to run yourself.
 ```pip install -r requirements.txt```
 
 ### Download data
-```https://www.fer.unizg.hr/demsi/databases_and_code/tattoo_dataset```
+```https://www.fer.unizg.hr/_download/repository/tattoo_images.zip```
 
-You will need to go to the site above and download the tattoo images. Its about 1500 images. Create a folder in the root directory called "data", and then inside the data folder make another folder called "tattoo_images". Dump the images you downloaded into the "tattoo_images" folder that you made inside the "data" folder. Use the directory structure below to help keep you oriented.
+When you go to the link above it should begin downloading the tattoo image dataset. Its about 1500 images. Create a folder in the root directory called "data", and then inside the data folder make another folder called "tattoo_images". Dump the images you downloaded into the "tattoo_images" folder that you made inside the "data" folder. Use the directory structure below to help keep you oriented.
 
 ```
 .
