@@ -21,7 +21,7 @@ Wait forrrr ittt....
 ----
 ## Examples
 Searching by text.
-Query text: skulls
+Query text: video games
 ![video_games_query](docs/usage/usage_video_games.jpg)
 
 Searching by image.
