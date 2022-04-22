@@ -27,10 +27,7 @@ Query text: video games
 Searching by image.
 ![mario](docs/usage/usage_image_mario.jpg)
 
-## Instructions
-## Here is how you run this:
-
-How to run yourself.
+## How to run:
 
 ### Setup
 
