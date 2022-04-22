@@ -92,7 +92,7 @@ Open a new terminal window/tab, run from same root directory.
 
 ### 6. Run frontend
 
-Open a new terminal window/tab, return to same directory
+Open a new terminal window/tab, run from same root directory.
 1. `streamlit run frontend/frontend.py`
 
 ## 7. Yahtzee! Jina FTW
