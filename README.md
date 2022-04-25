@@ -78,7 +78,7 @@ When you go to the link above it should begin downloading the tattoo image datas
 This will create embeddings for all images using CLIPImageEncoder, and then store them on disk (with metadata) with PQLiteIndexer.
 
 Open a new terminal window/tab, and run from same root directory.
-1. `python indexer/app.py to index data` 
+1. `python indexer/app.py` to index data 
 
 ### 4. Run text search backend
 
@@ -93,6 +93,6 @@ Open a new terminal window/tab, run from same root directory.
 ### 6. Run frontend
 
 Open a new terminal window/tab, run from same root directory.
-1. `streamlit run frontend/frontend.py`
+1. `streamlit run frontend/frontend.py` to start frontend
 
 ## 7. Yahtzee! Jina FTW
