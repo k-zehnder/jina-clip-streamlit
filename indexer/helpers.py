@@ -34,3 +34,9 @@ def get_embedded_da_from_img_files(images_path, num):
         .set_image_tensor_normalization()  # normalize color
         .set_image_tensor_channel_axis(-1, 0)  # switch color axis for the PyTorch model later
     )    
+
+def remove_workspace():
+    current_dir = pathlib.Path(__file__).parent.resolve()
+    if os.path.exists(os.path.join(current_dir, "workspace")):
+        print("[INFO] removing existing workspace...")
+        shutil.rmtree(os.path.join(current_dir, "workspace"))
