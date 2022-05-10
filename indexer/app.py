@@ -211,7 +211,6 @@ if os.path.exists(os.path.join(current_dir, "workspace")):
     print("[INFO] removing existing workspace...")
     shutil.rmtree(os.path.join(current_dir, "workspace"))
 
-WORKSPACE_DIR = "./workspace"
 flow_index = (
     Flow(
         port=12345
@@ -219,7 +218,7 @@ flow_index = (
         uses=CLIPEncoder,
         name="encoder",
         uses_with={"device": "cpu"},
-        workspace=WORKSPACE_DIR
+        workspace="./workspace"
     ).add(
         uses="jinahub://PQLiteIndexer/latest",
         name="indexer",
@@ -228,7 +227,7 @@ flow_index = (
             "metric": "cosine",
             "include_metadata": True,
         },
-        workspace=WORKSPACE_DIR,
+        workspace="./workspace",
         install_requirements=True,
     )
 )
