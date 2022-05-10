@@ -10,7 +10,7 @@ from jina import Flow, Document, DocumentArray, Executor, requests
 
 from transformers import CLIPFeatureExtractor, CLIPModel, CLIPTokenizer
 
-from helpers import clear_workspace
+from helpers import remove_workspace
 
 class CLIPEncoder(Executor):
     def __init__(
@@ -206,7 +206,7 @@ class CLIPEncoder(Executor):
 IMAGES_PATH = "./data/tattoo_images/*.jpg"
 images = DocumentArray.from_files(IMAGES_PATH)
 
-clear_workspace()
+remove_workspace()
 
 flow_index = (
     Flow(
