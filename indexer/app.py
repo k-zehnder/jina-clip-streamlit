@@ -227,11 +227,17 @@ flow_index = (
 )
 
 with flow_index:
-    flow_index.post(
-        on='/index', 
+    # flow_index.post(
+    #     on='/index', 
+    #     inputs=get_images("./data/tattoo_images/*.jpg"),
+    #     show_progressbar=True,
+    #     on_done=print
+    # )
+    flow_index.index(
         inputs=get_images("./data/tattoo_images/*.jpg"),
         show_progressbar=True,
-        on_done=print
+        one_done=print
     )
-    print("[INFO] indexing complete.")
+
+print("[INFO] indexing complete.")
 
