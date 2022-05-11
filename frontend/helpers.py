@@ -15,7 +15,8 @@ def get_docs_from_sqlite(connection: str, table: str) -> DocumentArray:
 def create_query_da(search_term: str) -> DocumentArray:
     return DocumentArray(Document(text=search_term))
 
-def get_client(port: int = 12345, show_progress: bool = True) -> Client:
+def get_client() -> Client:
+    port, show_progress = 12345, True
     c = Client(port=port)
     c.show_progress = show_progress
     return c

@@ -204,16 +204,16 @@ class CLIPEncoder(Executor):
 
 # ------------ Driver
 # remove_workspace()
-
 flow_index = (
-    Flow(
-        # port=12345
-    ).add(
-        uses=CLIPEncoder,
+    Flow()
+    .add(
+        # jina hub pull jinahub://TattooClipExecutor/latest
+        uses="jinahub://TattooClipExecutor",
         name="encoder",
         uses_with={"device": "cpu"},
         workspace="./workspace"
     ).add(
+        # jina hub pull jinahub://PQLiteIndexer/latest
         uses="jinahub://PQLiteIndexer/latest",
         name="indexer",
         uses_with={

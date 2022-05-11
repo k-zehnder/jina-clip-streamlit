@@ -199,15 +199,14 @@ class CLIPEncoder(Executor):
         return {k: v.to(self.device) for k, v in x.items()}
 
 # ------------ Driver
-WORKSPACE_DIR = "./workspace"
 flow_search_image = (
     Flow(
         port=12345
     ).add(
-        uses=CLIPEncoder,
+        uses="jinahub://TattooClipExecutor",
         name="encoder",
         uses_with={"device": "cpu"},
-        workspace=WORKSPACE_DIR
+        workspace="./workspace"
     ).add(
         uses="jinahub://PQLiteIndexer/latest",
         name="indexer",
@@ -216,7 +215,7 @@ flow_search_image = (
             "metric": "cosine",
             "include_metadata": True,
         },
-        workspace=WORKSPACE_DIR,
+        workspace="./workspace",
         install_requirements=True,
     )
 )
