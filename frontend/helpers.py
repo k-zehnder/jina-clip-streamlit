@@ -5,26 +5,25 @@ from jina import DocumentArray, Document
 from jina.clients import Client
 from PIL import Image
 import streamlit as st
-from config import IMAGE_RESIZE_FACTOR
+from config import IMAGE_RESIZE_FACTOR, PORT, SHOW_PROGRESS
 
-
-def get_docs_from_sqlite(connection: str, table: str) -> DocumentArray:
-    cfg = SqliteConfig(connection, table)
-    return DocumentArray(storage='sqlite', config=cfg)
 
 def create_query_da(search_term: str) -> DocumentArray:
     return DocumentArray(Document(text=search_term))
 
 def get_client() -> Client:
-    port, show_progress = 12345, True
-    c = Client(port=port)
-    c.show_progress = show_progress
+    c = Client(port=PORT)
+    c.show_progress = SHOW_PROGRESS
     return c
 
 def resize_image(filename: str, resize_factor: str=IMAGE_RESIZE_FACTOR) -> Image:
     image = Image.open(filename)
     w, h = image.size
     return image.resize((w * resize_factor, h * resize_factor), Image.ANTIALIAS)
+
+def get_docs_from_sqlite(connection: str, table: str) -> DocumentArray:
+    cfg = SqliteConfig(connection, table)
+    return DocumentArray(storage='sqlite', config=cfg)
 
 def search_by_text(query_text, verbose=False):
     client = get_client()
