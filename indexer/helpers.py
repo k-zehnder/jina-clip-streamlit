@@ -7,7 +7,8 @@ from jina.types.request import Request
 from docarray import DocumentArray, Document
 from docarray.array.sqlite import SqliteConfig
 from PIL import Image
-
+import pathlib
+import os
 
 
 def get_docs_from_sqlite(connection, table):
@@ -35,8 +36,8 @@ def get_embedded_da_from_img_files(images_path, num):
         .set_image_tensor_channel_axis(-1, 0)  # switch color axis for the PyTorch model later
     )    
 
-def remove_workspace():
-    current_dir = pathlib.Path(__file__).parent.resolve()
-    if os.path.exists(os.path.join(current_dir, "workspace")):
-        print("[INFO] removing existing workspace...")
-        shutil.rmtree(os.path.join(current_dir, "workspace"))
+# def remove_workspace():
+#     current_dir = pathlib.Path(__file__).parent.resolve()
+#     if os.path.exists(os.path.join(current_dir, "workspace")):
+#         print("[INFO] removing existing workspace...")
+#         shutil.rmtree(os.path.join(current_dir, "workspace"))

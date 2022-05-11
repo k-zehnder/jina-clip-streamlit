@@ -201,7 +201,7 @@ class CLIPEncoder(Executor):
 WORKSPACE_DIR = "./workspace"
 flow_search_text = (
     Flow(
-        port=12345
+        # port=12345
     ).add(
         uses=CLIPEncoder,
         name="encoder",
