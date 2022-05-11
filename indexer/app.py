@@ -10,7 +10,7 @@ from jina import Flow, Document, DocumentArray, Executor, requests
 
 from transformers import CLIPFeatureExtractor, CLIPModel, CLIPTokenizer
 
-from helpers import remove_workspace
+from helpers import remove_workspace, get_images
 
 class CLIPEncoder(Executor):
     def __init__(
@@ -203,18 +203,11 @@ class CLIPEncoder(Executor):
 
 
 # ------------ Driver
-IMAGES_PATH = "./data/tattoo_images/*.jpg"
-images = DocumentArray.from_files(IMAGES_PATH)
-
 # remove_workspace()
-current_dir = pathlib.Path(__file__).parent.resolve()
-if os.path.exists(os.path.join(current_dir, "workspace")):
-    print("[INFO] removing existing workspace...")
-    shutil.rmtree(os.path.join(current_dir, "workspace"))
-    
+
 flow_index = (
     Flow(
-        port=12345
+        # port=12345
     ).add(
         uses=CLIPEncoder,
         name="encoder",
@@ -236,7 +229,7 @@ flow_index = (
 with flow_index:
     flow_index.post(
         on='/index', 
-        inputs=images,
+        inputs=get_images("./data/tattoo_images/*.jpg"),
         show_progressbar=True,
         on_done=print
     )
