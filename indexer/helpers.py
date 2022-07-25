@@ -12,10 +12,6 @@ import os
 import shutil
 
 
-def get_images(path):
-    IMAGES_PATH = "./data/tattoo_images/*.jpg"
-    yield from DocumentArray.from_files(IMAGES_PATH)
-
 def get_docs_from_sqlite(connection, table):
     cfg = SqliteConfig(connection, table)
     return DocumentArray(storage='sqlite', config=cfg)
@@ -33,6 +29,10 @@ def resize_image(filename, resize_factor=2):
     w, h = image.size
     return image.resize((w * resize_factor, h * resize_factor), Image.ANTIALIAS)
 
+def get_images():
+    IMAGES_PATH = "./data/tattoo_images/*.jpg"
+    yield from DocumentArray.from_files(IMAGES_PATH)
+    
 def get_embedded_da_from_img_files(images_path, num):
     return DocumentArray.from_files(images_path, num).apply(
         lambda d: d.load_uri_to_image_tensor()
